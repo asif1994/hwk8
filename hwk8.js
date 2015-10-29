@@ -52,13 +52,17 @@ function drop(event) {
     var j = parseInt(str[2]);
 
     if (checkTable[i][j] == 0){
-      event.currentTarget.appendChild(document.getElementById(data));
+      /*event.currentTarget.appendChild(document.getElementById(data));*/
+      event.currentTarget.src = event.currentTarget.appendChild(document.getElementById(data));
       checkTable[i][j] = 1;
-      document.getElementById("works").value = checkTable;
+      document.getElementById("works").value = "if";
     } else {
+      var old_img = event.currentTarget.src;
+      event.currentTarget.replaceChild(document.getElementById(data), event.currentTarget.src);
       
-      event.currentTarget.replaceChild(document.getElementById(data), document.getElementById(event.currentTarget).id.src);
-      document.getElementById("works").value = event.currentTarget.id;
+      document.getElementById("works").value =document.getElementById("d0");
+     document.getElementById("d0") = old_img;
+      
     /*event.currentTarget.appendChild(document.getElementById(data));*/
 
   }
