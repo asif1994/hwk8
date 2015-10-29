@@ -35,6 +35,7 @@ function assign_img() {
 	}
 }
 
+var checkTable = [[0,0,0,0],[0,0,0,0],[0,0,0,0]];
 function allowDrop(event) {
     event.preventDefault();
 }
@@ -46,5 +47,19 @@ function drag(event) {
 function drop(event) {
     event.preventDefault();
     var data = event.dataTransfer.getData("image");
-    event.target.appendChild(document.getElementById(data));
+    var str = event.currentTarget.id;
+    var i = parseInt(str[1]);
+    var j = parseInt(str[2]);
+
+    if (checkTable[i][j] == 0){
+      event.currentTarget.appendChild(document.getElementById(data));
+      checkTable[i][j] = 1;
+      document.getElementById("works").value = checkTable;
+    } else {
+      
+      event.currentTarget.replaceChild(document.getElementById(data), document.getElementById(event.currentTarget).id.src);
+      document.getElementById("works").value = event.currentTarget.id;
+    /*event.currentTarget.appendChild(document.getElementById(data));*/
+
+  }
 }
