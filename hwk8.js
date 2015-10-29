@@ -35,4 +35,16 @@ function assign_img() {
 	}
 }
 
+function allowDrop(event) {
+    event.preventDefault();
+}
 
+function drag(event) {
+    event.dataTransfer.setData("image", event.target.id);
+}
+
+function drop(event) {
+    event.preventDefault();
+    var data = event.dataTransfer.getData("image");
+    event.target.appendChild(document.getElementById(data));
+}
