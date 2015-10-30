@@ -42,6 +42,7 @@ function assign_img() {
 var diffX, diffY, theElement;
 
 
+<<<<<<< HEAD
 // The event handler function for grabbing the word
 function grabber(event) {
 
@@ -104,3 +105,28 @@ function dropper(event) {
 
   event.stopPropagation();
 }  //** end of dropper
+=======
+function drop(event) {
+    event.preventDefault();
+    var data = event.dataTransfer.getData("image");
+    var str = event.currentTarget.id;
+    var i = parseInt(str[1]);
+    var j = parseInt(str[2]);
+
+    if (checkTable[i][j] == 0){
+      /*event.currentTarget.appendChild(document.getElementById(data));*/
+      event.currentTarget.src = event.currentTarget.appendChild(document.getElementById(data));
+      checkTable[i][j] = 1;
+      document.getElementById("works").value = "if";
+    } else {
+      var old_img = event.currentTarget.src;
+      event.currentTarget.replaceChild(document.getElementById(data), event.currentTarget.src);
+      
+      document.getElementById("works").value =document.getElementById("d0");
+     document.getElementById("d0") = old_img;
+      
+    /*event.currentTarget.appendChild(document.getElementById(data));*/
+
+  }
+}
+>>>>>>> d4e5caf99a946962087ab52c13021e2c327eba5d
