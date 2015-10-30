@@ -8,49 +8,47 @@
 </head>
 
 <body onload="assign_img()">
-    <center><h1> Jig-Saw Puzzle Game </h1>
-        <table style="width:400px;height:300px;" border="5px">
-            <tbody>
+    <center>
+        <h1> Jig-Saw Puzzle Game </h1>
+        <table style="width:440px;height:300px;" border="5px">
                 <tr>
-                    <td id = "g00" ondrop="drop(event)" ondragover="allowDrop(event)" width="100px" height="100px" src=""/> 
-                    <td id = "g01" ondrop="drop(event)" ondragover="allowDrop(event)"/>
-                    <td id = "g02" ondrop="drop(event)" ondragover="allowDrop(event)"/>
-                    <td id = "g03" ondrop="drop(event)" ondragover="allowDrop(event)"/>
+                    <td id = "g00" width="100px" height="100px" src=""/>
+                    <td id = "g01" width="100px" height="100px" src=""/>
+                    <td id = "g02" width="100px" height="100px" src=""/>
+                    <td id = "g03" width="100px" height="100px" src=""/>
                 </tr>
 
                 <tr>
-                    <td id = "g10" ondrop="drop(event)" ondragover="allowDrop(event)"/>
-                    <td id = "g11" ondrop="drop(event)" ondragover="allowDrop(event)"/> 
-                    <td id = "g12" ondrop="drop(event)" ondragover="allowDrop(event)"/> 
-                    <td id = "g13" ondrop="drop(event)" ondragover="allowDrop(event)"/> 
+                    <td id = "g10" width="100px" height="100px" src=""/>
+                    <td id = "g11" width="100px" height="100px" src=""/> 
+                    <td id = "g12" width="100px" height="100px" src=""/> 
+                    <td id = "g13" width="100px" height="100px" src=""/> 
                 </tr>
 
                 <tr>
-                    <td id = "g20" ondrop="drop(event)" ondragover="allowDrop(event)"/>
-                    <td id = "g21" ondrop="drop(event)" ondragover="allowDrop(event)"/>
-                    <td id = "g22" ondrop="drop(event)" ondragover="allowDrop(event)"/>
-                    <td id = "g23" ondrop="drop(event)" ondragover="allowDrop(event)"/>
+                    <td id = "g20" width="100px" height="100px" src=""/>
+                    <td id = "g21" width="100px" height="100px" src=""/>
+                    <td id = "g22" width="100px" height="100px" src=""/>
+                    <td id = "g23" width="100px" height="100px" src=""/>
                 </tr>
-            </tbody>
         </table>
         <input type="submit" name="Done" value="Done" id ="buttonDone"/>
     </center>
     <center>
-            <tr>
-                <td id="d0"> <img src="" id="d0" draggable="true" ondragstart="drag(event)"/> </td>
-                <td id="d1"> <img src="" id="d1" draggable="true" ondragstart="drag(event)"/> </td>
-                <td id="d2"> <img src="" id="d2" draggable="true" ondragstart="drag(event)"/> </td>
-                <td id="d3"> <img src="" id="d3" draggable="true" ondragstart="drag(event)"/> </td>
-                <td id="d4"> <img src="" id="d4" draggable="true" ondragstart="drag(event)"/> </td>
-                <td id="d5"> <img src="" id="d5" draggable="true" ondragstart="drag(event)"/> </td>
-                <td id="d6"> <img src="" id="d6" draggable="true" ondragstart="drag(event)"/> </td>
-                <td id="d7"> <img src="" id="d7" draggable="true" ondragstart="drag(event)"/> </td>
-                <td id="d8"> <img src="" id="d8" draggable="true" ondragstart="drag(event)"/> </td>
-                <td id="d9"> <img src="" id="d9" draggable="true" ondragstart="drag(event)"/> </td>
-                <td id="d10"> <img src="" id="d10" draggable="true" ondragstart="drag(event)"/> </td>
-                <td id="d11"> <img src="" id="d11" draggable="true" ondragstart="drag(event)"/> </td>
-            </tr>
-        <textarea  id="works" type="text" value="">  </textarea>
-</center>
+        <p>
+            <img src="" id="d0" onmousedown="grabber(event);" style="position: absolute; top: 500px; left: 50px;"/>
+            <img src="" id="d1" onmousedown="grabber(event);" style="position: absolute; top: 500px; left: 200px;"/> 
+            <img src="" id="d2" onmousedown="grabber(event);" style="position: absolute; top: 500px; left: 350px;"/> 
+            <img src="" id="d3" onmousedown="grabber(event);" style="position: absolute; top: 500px; left: 500px;"/>
+            <img src="" id="d4" onmousedown="grabber(event);" style="position: absolute; top: 500px; left: 650px;"/>
+            <img src="" id="d5" onmousedown="grabber(event);" style="position: absolute; top: 500px; left: 800px;"/>
+            <img src="" id="d6" onmousedown="grabber(event);" style="position: absolute; top: 500px; left: 950px;"/>
+            <img src="" id="d7" onmousedown="grabber(event);" style="position: absolute; top: 500px; left: 1100px;"/>
+            <img src="" id="d8" onmousedown="grabber(event);" style="position: absolute; top: 630px; left: 350px;"/>
+            <img src="" id="d9" onmousedown="grabber(event);" style="position: absolute; top: 630px; left: 500px;"/>
+            <img src="" id="d10" onmousedown="grabber(event);" style="position: absolute; top: 630px; left: 650px;"/>
+            <img src="" id="d11" onmousedown="grabber(event);" style="position: absolute; top: 630px; left: 800px;"/>
+        </p>
+    </center>
 </body>
 </html>
