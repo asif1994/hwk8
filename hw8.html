@@ -2,15 +2,21 @@
 <html>
 <head>
 <title> Jig-Saw Puzzle Game </title>
-<!-- <link href = "hw8.css" rel="stylesheet"/> -->
+<link href = "hw8.css" rel="stylesheet"/>
 <script src="hwk8.js"></script>
 
 </head>
 
-<body onload="assign_img()">
-    <center>
-        <h1> Jig-Saw Puzzle Game </h1>
-        <table style="width:440px;height:300px;" border="5px">
+<body onload="Timer() ; assign_img()" >
+    <img src = "./puzzleback.gif" alt = "Puzzle" id="grid"/><br />
+    <h1> Jig-Saw Puzzle </h1>
+    <div>
+    <h3 id="tHeader"> Time Recorder </h3>
+    <p id="timer"> 00:00 </p>
+    </div>
+
+    <center onload="assign_img()" >
+        <table >
                 <tr>
                     <td id = "g00" width="100px" height="100px" src=""/>
                     <td id = "g01" width="100px" height="100px" src=""/>
@@ -32,22 +38,23 @@
                     <td id = "g23" width="100px" height="100px" src=""/>
                 </tr>
         </table>
-        <input type="submit" name="Done" value="Done" id ="buttonDone"/>
+        <input type="submit" name="Done" value="Done" id ="buttonDone" onclick="stop()"/>
+        <textarea id="txt"></textarea>
     </center>
     <center>
         <p>
-            <img src="" id="d0" onmousedown="grabber(event);" style="position: absolute; top: 500px; left: 50px;"/>
-            <img src="" id="d1" onmousedown="grabber(event);" style="position: absolute; top: 500px; left: 200px;"/> 
-            <img src="" id="d2" onmousedown="grabber(event);" style="position: absolute; top: 500px; left: 350px;"/> 
-            <img src="" id="d3" onmousedown="grabber(event);" style="position: absolute; top: 500px; left: 500px;"/>
-            <img src="" id="d4" onmousedown="grabber(event);" style="position: absolute; top: 500px; left: 650px;"/>
-            <img src="" id="d5" onmousedown="grabber(event);" style="position: absolute; top: 500px; left: 800px;"/>
-            <img src="" id="d6" onmousedown="grabber(event);" style="position: absolute; top: 500px; left: 950px;"/>
-            <img src="" id="d7" onmousedown="grabber(event);" style="position: absolute; top: 500px; left: 1100px;"/>
-            <img src="" id="d8" onmousedown="grabber(event);" style="position: absolute; top: 630px; left: 350px;"/>
-            <img src="" id="d9" onmousedown="grabber(event);" style="position: absolute; top: 630px; left: 500px;"/>
-            <img src="" id="d10" onmousedown="grabber(event);" style="position: absolute; top: 630px; left: 650px;"/>
-            <img src="" id="d11" onmousedown="grabber(event);" style="position: absolute; top: 630px; left: 800px;"/>
+            <img src="" id="d0" onmousedown="grabber(event);" style="position: absolute; top: 425px; left: 385px;"/>
+            <img src="" id="d1" onmousedown="grabber(event);" style="position: absolute; top: 425px; left: 490px;"/> 
+            <img src="" id="d2" onmousedown="grabber(event);" style="position: absolute; top: 425px; left: 595px;"/> 
+            <img src="" id="d3" onmousedown="grabber(event);" style="position: absolute; top: 425px; left: 700px;"/>
+            <img src="" id="d4" onmousedown="grabber(event);" style="position: absolute; top: 425px; left: 805px;"/>
+            <img src="" id="d5" onmousedown="grabber(event);" style="position: absolute; top: 425px; left: 910px;"/>
+            <img src="" id="d6" onmousedown="grabber(event);" style="position: absolute; top: 530px; left: 385px;"/>
+            <img src="" id="d7" onmousedown="grabber(event);" style="position: absolute; top: 530px; left: 490px;"/>
+            <img src="" id="d8" onmousedown="grabber(event);" style="position: absolute; top: 530px; left: 595px;"/>
+            <img src="" id="d9" onmousedown="grabber(event);" style="position: absolute; top: 530px; left: 700px;"/>
+            <img src="" id="d10" onmousedown="grabber(event);" style="position: absolute; top: 530px; left: 805px;"/>
+            <img src="" id="d11" onmousedown="grabber(event);" style="position: absolute; top: 530px; left: 910px;"/>
         </p>
     </center>
 </body>

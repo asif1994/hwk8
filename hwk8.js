@@ -35,6 +35,33 @@ function assign_img() {
 	}
 }
 
+var recording = true;
+var elapsed = 0;
+var minutes = 0;
+var second = 0;
+var stringMin = "";
+var stringSec = "";
+
+function Timer() {
+  setInterval("countTime()",1000);
+}
+
+function countTime() {
+  if (recording == true) {
+    minutes = Math.floor(elapsed/60);
+    second = elapsed - minutes*60;}
+    if (minutes < 10) { stringMin = "0" + minutes.toString()} else {stringMin = minutes.toString()}
+    if (second < 10) { stringSec = "0" + second.toString()} else {stringSec = second.toString()}
+    document.getElementById("timer").innerHTML = stringMin + ":" + stringSec;
+    elapsed++;
+}
+
+function stop() {
+  recording = false;
+  document.getElementById("txt").value = "The time it took you to finish the puzzle is: " 
+  + stringMin + " minutes " + stringSec + " seconds";
+}
+
 
 var diffX, diffY, theElement;
 
@@ -65,9 +92,17 @@ function mover(event) {
 }
 
 function dropper(event) {
+  placing(event);
 
   document.removeEventListener("mouseup", dropper, true);
   document.removeEventListener("mousemove", mover, true);
 
   event.stopPropagation();
+}
+
+function placing(event) {
+    if ((event.clientY > 50) && (event.clientY < 350) && (event.clientX > 500) && (event.clientX < 900)) {
+        theElement.style.left = (Math.floor(event.clientX / 100) * 100) + "px";
+        theElement.style.top = ((Math.floor((event.clientY - 50) / 100) * 100) + 50) + "px";
+    }
 }
