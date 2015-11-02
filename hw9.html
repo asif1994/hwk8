@@ -1,0 +1,41 @@
+<html>
+<head>
+	<title> Memory Game </title>
+	<script type="text/javascript" src="./hw9.js"></script>
+	<link rel="stylesheet" href="./hw9.css"/>
+	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" ></script>
+</head>
+
+<body onload = "insertingTable()">
+	<center>
+		<h1> Memory Game </h1>
+		<table width="800" height="400">
+			<tr align="center">
+				<td> <button id="m00" onclick="clicking(event)"> </button> </td>
+				<td> <button id="m01" onclick="clicking(event)"> </button> </td>
+				<td> <button id="m02" onclick="clicking(event)"> </button> </td>
+				<td> <button id="m03" onclick="clicking(event)"> </button> </td>
+			</tr>
+			<tr align="center">
+				<td> <button id="m10" onclick="clicking(event)"> </button> </td>
+				<td> <button id="m11" onclick="clicking(event)"> </button> </td>
+				<td> <button id="m12" onclick="clicking(event)"> </button> </td>
+				<td> <button id="m13" onclick="clicking(event)"> </button> </td>
+			</tr>
+			<tr align="center">
+				<td> <button id="m20" onclick="clicking(event)"> </button> </td>
+				<td> <button id="m21" onclick="clicking(event)"> </button> </td>
+				<td> <button id="m22" onclick="clicking(event)"> </button> </td>
+				<td> <button id="m23" onclick="clicking(event)"> </button> </td>
+			</tr>
+			<tr align="center">
+				<td> <button id="m30" onclick="clicking(event)"> </button> </td>
+				<td> <button id="m31" onclick="clicking(event)"> </button> </td>
+				<td> <button id="m32" onclick="clicking(event)"> </button> </td>
+				<td> <button id="m33" onclick="clicking(event)"> </button> </td>
+			</tr>
+		</table>
+		<textarea id = "checkCode" value = ""> </textarea>
+	</center>
+</body>
+</html>
