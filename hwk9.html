@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<head>
+<title> Memory Game </title>
+<link rel="stylesheet" href="hwk9.css"></link>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+var click=0;
+var first_id ="";
+var second_id ="";
+$(document).ready(function(){
+	$(".hiding").hide();
+	$("button").click(function(){
+		if (click==0){
+			first = this;
+			$(first).find("input").fadeIn(3000);
+			click+=1;
+			first_id = first.id;
+		}  else if (click==1){
+			second = this;
+			$(this).find("input").fadeIn(3000);
+			click += 1;
+			second_id = this.id;
+			document.getElementById("txt").value += first_id;
+			matching(first_id,second_id);
+
+			if (matching(first_id,second_id)) {
+				$(first).find("input").show();
+				$(second).find("input").show();
+				click=0;
+			} else {
+				$(first).find("input").fadeOut(4000);
+				$(second).find("input").fadeOut(3000);
+				click=0;
+			}
+
+		}
+	});
+}); 
+
+function matching(a, b){
+	var first = "b"+a[1]+a[2];
+	var second = "b"+b[1]+b[2];
+	//document.getElementById("txt").value = document.getElementById(first).value;
+	if (document.getElementById(first).value == document.getElementById(second).value){
+		return true;
+		first_id ="";
+		second_id ="";
+	}
+}
+			//$("#b00").fadeOut(3000)
+			//function(){
+		//$("#b00").setInterval(function() {
+			//show();}, 3000);
+
+//var first_id = "";
+//var second_id = "";
+//function showing(event) {
+//	var elt = event.currentTarget.id;
+//	var i = elt[1];
+//	var j = elt[2];
+//	var index = parseInt(i)+parseInt(j);
+//	var currentID = "b" + i.toString() + j.toString();
+//	document.getElementById(currentID).childNodes[0].innerHTML = random_nums[index];
+//	document.getElementById("txt").value = document.getElementById(currentID).childNodes[0].innerHTML;
+//	$(document).ready(function(){
+//		$("button").click(function(){
+//			$("#" + currentID).fadeIn(3000);
+//		});
+//	});
+	//var elt = event.currentTarget.id;
+	//$("#"+ elt).fadeIn(3000);
+
+//	if (first_id == ""){
+//		first_id = currentID;
+//	} else {
+//		second_id = currentID;
+//	}
+
+//}
+</script>
+</head>
+
+<body onload="assign_num()">
+<script src="hwk9.js"></script>
+<center>
+<h1> Welcome to Game of 15 </h1>
+<table width="400px" height="400px" border="5px">
+<tbody>
+  <tr align="center" width="100px" height="100px">
+	<td width="100px" height="100px">
+		<button id="c00"><input class="hiding" id="b00" type="button" value=""></input></button>
+	</td>
+	<td width="100px" height="100px">
+		<button id="c01"><input class="hiding" id="b01" type="button" value=""></input></button>
+	</td>
+	<td width="100px" height="100px">
+		<button id="c02"><input class="hiding" id="b02" type="button" value=""></input></button>
+	</td>
+	<td width="100px" height="100px"> 
+		<button id="c03"><input class="hiding" id="b03" type="button" value=""></input></button>
+	</td>
+  </tr>
+  <tr align="center">
+	<td>
+		<button>
+			<input class="hiding" id="b10" type="button" value="" onclick="showing(this.id)"></input> 
+		</button>
+	</td>
+	<td>
+		<button>
+			<input class="hiding" id="b11" type="button" value="" onclick="showing(this.id)"></input> 
+		</button>
+	</td>
+	<td>
+		<button>
+			<input class="hiding" id="b12" type="button" value="" onclick="showing(this.id)"></input> 
+		</button>
+	</td>
+	<td>
+		<button>
+			<input class="hiding" id="b13" type="button" value="" onclick="showing(this.id)"></input> 
+		</button>
+	</td>
+  </tr>
+  <tr align="center">
+	<td>
+		<button>
+			<input class="hiding" id="b20" type="button" value="" onclick="showing(this.id)"></input> 
+		</button>
+	</td>
+	<td>
+		<button>
+			<input class="hiding" id="b21" type="button" value="" onclick="showing(this.id)"></input> 
+		</button>
+	</td>
+	<td>
+		<button>
+			<input class="hiding" id="b22" type="button" value="" onclick="showing(this.id)"></input> 
+		</button>
+	</td>
+	<td>
+		<button>
+			<input class="hiding" id="b23" type="button" value="" onclick="showing(this.id)"></input> 
+		</button>
+	</td>
+  </tr>
+  <tr align="center">
+	<td>
+		<button>
+			<input class="hiding" id="b30" type="button" value="" onclick="showing(this.id)"></input> 
+		</button>
+	</td>
+	<td>
+		<button>
+			<input class="hiding" id="b31" type="button" value="" onclick="showing(this.id)"></input> 
+		</button>
+	</td>
+	<td>
+		<button>
+			<input class="hiding" id="b32" type="button" value="" onclick="showing(this.id)"></input> 
+		</button>
+	</td>
+	<td>
+		<button>
+			<input class="hiding" id="b33" type="button" value="" onclick="showing(this.id)"></input> 
+		</button>
+	</td>
+  </tr>
+</tbody>
+</table>
+<textarea id="txt" value=""></textarea>
+</center>
+</body>

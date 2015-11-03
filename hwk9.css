@@ -1,0 +1,25 @@
+/*.btn {
+    position: absolute;
+    top:90px;
+    left:484px;
+    width: 100px;
+    height: 100px;
+}
+
+input {
+    position: absolute;
+    left:0px;
+    top:0px;
+    width: 100px;
+    height: 100px;
+} 
+
+#submit, #sent {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+#sent {
+  display: none;
+}
