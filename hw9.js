@@ -32,8 +32,8 @@ function clicking(event) {
 	var i = elt[1];
 	var j = elt[2];
 	var currentID = "m" + i.toString() + j.toString();
-	var str = mainArray[i][j].toString();
-	document.getElementById(currentID).innerHTML = str;
+	var str = mainArray[i][j];
+	document.getElementById(currentID).firstChild.data = str;
     if (indexFirst.length == 0)
     {
     	indexFirst = currentID;
@@ -58,12 +58,7 @@ function checkMatching(a, b) {
 			$ ("#"+a).fadeOut(3000);
 			$ ("#"+b).fadeOut(3000);
 		});
+		document.getElementById(a).firstChild.data = "";
+		document.getElementById(b).firstChild.data = "";
 	}
-}
-
-function myTimer() {
-	var i = indexFirst[1];
-	var j = indexFirst[2];
-	var str = mainArray[i][j].toString();
-    document.getElementById(indexFirst).innerHTML = str;
 }
