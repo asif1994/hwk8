@@ -1,8 +1,5 @@
 <?php
-ini_set('display_errors', 'On');
-error_reporting(E_ALL);
 
-$list = [];
 if (isset($_POST["check"])) {
     check();
 } else if (isset($_POST["questions"])) {
@@ -36,7 +33,6 @@ function login(){
     <tr>
     <td> <input type = "submit" name="check" value = "Submit" /> </td>
     <td> <input type = "reset" value = "Clear" /> </td>
-    <td align="right"> <input type = "submit" name="registration" value = "First Time User"/> </td>
     </tr>
     </table>
     </form>
@@ -71,7 +67,19 @@ function check(){
   }
   fclose($file);
 
-  if ($found){
+  $file = fopen ("./results", "r");
+  $result_found = FALSE;
+  while (!feof($file)){
+    $line = fgets ($file);
+    $split = explode(":", $line);
+    if ($user == $split[0]) {
+      $result_found = TRUE;
+      break;
+    }
+  }
+  fclose($file);
+
+  if ($found && !$result_found){
       $script = $_SERVER['PHP_SELF'];
       print <<<WELCOME
 	<html>
@@ -91,6 +99,20 @@ function check(){
           </form>
 	  </body>
 	  </html>
+WELCOME;
+  }
+  else if ($found && $result_found){
+      $script = $_SERVER['PHP_SELF'];
+      print <<<WELCOME
+        <html>
+        <head>
+        <title> Astronomy Quiz </title>
+        </head>
+        <body>
+	<h3> User Has taken the quiz before </h3>
+	Your score was $split[1]
+	</body>
+	</html>
 WELCOME;
   }
   else{
@@ -129,7 +151,7 @@ TOP;
 	$score = $_SESSION["score"];
 	$start = $_SESSION["start"];
 
-	if (time() - $start >= 30){
+	if (time() - $start > 900){
 	  print <<<NOTIME
           <h2> Sorry, Out of Time </h2>
           <p>
@@ -141,7 +163,7 @@ TOP;
           </p>
 NOTIME;
         $result = $user . ":" . $score . "\n";
-        $file = fopen("./results.txt", "a");
+        $file = fopen("./results", "a");
         fwrite($file, "$result");
         fclose($file);
 
@@ -154,7 +176,6 @@ NOTIME;
 
             $question_num++;
             $_SESSION["question_num"] = $question_num;
-	    print_r ($GLOBALS['status']);
             print <<<FIRST
 	    <h2> TRUE / FALSE </h2>
             <form method="POST" action="$script">
@@ -332,7 +353,7 @@ SIXTH;
           </p>
 LAST;
 	$result = $user . ":" . $score . "\n";
-	$file = fopen("./results.txt", "a");
+	$file = fopen("./results", "a");
 	fwrite($file, "$result");
         fclose($file);
 
